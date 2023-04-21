@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<!--
+	IR.WoT Information Retrieval for the web of Things
+	-- Query UI Module
+-->
+<html xmlns:justify-content="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IR.WoT - Information Retrieval for the WoT</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="description" content="Web of Things Search Engine"/>
+    <meta name="keywords" content="Information Retrieval, Search Engine, Web of Things, Internet of Things"/>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <!-- Section for Searching Things -->
+                <section id="search" class="alt">
+                    <p>Information Retrieval for the <br/> <\WoT> Web of Things</p>
+                    <!-- <form method="post" action="/results">
+                        <input type="text" name="query" id="query" placeholder="Search for Things?" />
+                    </form> -->
+                </section>
+                <ul class="icons">
+                    <li><a href="https://github.com/cristyanmanta/ir-wot-ugr" class="icon fa-github fa-2x"><span
+                            class="label">GitHub Project Repository</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Banner w/ id="banner" nor Content-->
+            <section>
+
+                <div class="row gtr-200">
+
+                    <div class="col-6 col-12-medium">
+
+                        <!-- IR.WoT Form to capture CO & CAS User Query -->
+
+                        <form method="post" action="/results">
+
+                            <br>
+                            <h3>Advanced Search UI</h3>
+
+                            <div class="box">
+
+                                <div class="row gtr-uniform">
+
+                                    <div class="col-10 col-12-xsmall">
+                                        <input type="text" name="query" id="query" placeholder="Search for Things?"/>
+                                    </div>
+                                    <div class="col-2 col-12-xsmall">
+                                        <button class="button primary icon fa-search" type="submit"></button>
+                                    </div>
+
+                                    <div class="col-6 col-12-small">
+                                        <small class="form-text text-muted"><i>Spatial Restrictions</i></small>
+                                        <select class=custom-select name=spatial_input>
+                                            <option value=0>Here (100 mts)
+                                            <option value=1 selected>1km around
+                                            <option value=2>10km around
+                                            <option value=3>100km around
+                                            <option value=4>1000km around
+                                            <option value=5>Anywhere
+                                        </select>
+                                    </div>
+
+                                    <div class="col-6 col-12-small">
+                                        <small class="form-text text-muted"><i>Temporal Restrictions</i></small>
+                                        <select class=custom-select name=temporal_input>
+                                            <option value=0 selected>Now (Last 5min)
+                                            <option value=1>Past Hour
+                                            <option value=2>Past 24h
+                                            <option value=3>Past Week
+                                            <option value=4>Past Month
+                                            <option value=5>Anytime
+                                        </select>
+                                    </div>
+
+                                    <div class="col-4 col-12-small">
+                                        <small class="form-text text-muted"><i>Entity Restrictions</i></small>
+                                        <br>
+                                        <div class="form-group context-pad" align=left>
+                                            <div class="custom-control custom-radio">
+                                                <input class=custom-control-input name=type_input id=customRadio1
+                                                       type=radio
+                                                       value=0 checked>
+                                                <label class=custom-control-label for=customRadio1>All Types</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input class=custom-control-input name=type_input id=customRadio2
+                                                       type=radio
+                                                       value=1>
+                                                <label class=custom-control-label for=customRadio2>Sensors</label></div>
+                                            <div class="custom-control custom-radio">
+                                                <input class=custom-control-input name=type_input id=customRadio3
+                                                       type=radio
+                                                       value=2>
+                                                <label class=custom-control-label for=customRadio3>Things</label></div>
+                                            <div class="custom-control custom-radio">
+                                                <input class=custom-control-input name=type_input id=customRadio4
+                                                       type=radio
+                                                       value=3>
+                                                <label class=custom-control-label for=customRadio4>Spaces</label></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-8 col-12-small">
+                                        <!--<small class="form-text text-muted"><i>Element Restrictions: Property</i></small>-->
+                                        <input type="text" name="property_input" id="cas-property"
+                                               placeholder="Property Restrictions"/>
+                                        <br>
+                                        <!--<small class="form-text text-muted"><i>Element Restrictions: Action</i></small>-->
+                                        <input type="text" name="action_input" id="cas-action"
+                                               placeholder="Action Restrictions"/>
+                                        <br>
+                                        <!--<small class="form-text text-muted"><i>Element Restrictions: Event</i></small>-->
+                                        <input type="text" name="event_input" id="cas-event"
+                                               placeholder="Event Restrictions"/>
+                                    </div>
+                                    <div class="col-10 col-12-xsmall">
+                                        <input type="text" name="location_user" id="location_user" placeholder="Your Location ..." disabled/>
+                                        <input type="hidden" name="location_input" id="location_input" value=0>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="col-6 col-12-medium">
+                        <header class="main">
+                            <h1>IR.WoT</h1>
+                        </header>
+                        <p><span style="text-decoration: underline;">Instructions of Use:</span> For <strong>CO
+                            Content-Only</strong> Introduce your information needs inside the main Text Box over
+                            (Searching for Things?).
+                            For <strong>CAS Content-Only and Structure</strong> queries use the optional Text Boxes to
+                            define context, document and element restrictions.
+                            Define advanced filtering options as required for spatial and temporal contexts and
+                            structure restrictions over particular Properties, Actions or Events of Things.</p>
+                        <p>
+                            IR.WoT is a cloud-based system in the form of a search engine comprised of the following
+                            modules: crawler, indexer, IR modeler, ranker, interpreter, query and results UI, described
+                            in the architecture section. We provide also an overview of the cloud internal architecture
+                            on top of Google Cloud Platform and the mechanisms to interconnect and exhibit the
+                            SIM.WoT and IR.WoT projects through APIs.
+                        </p>
+                        <ul class="actions">
+                            <li><a href="/architecture" class="button big">Learn More</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+    </div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="inner">
+
+        <!-- Search -->
+        <section id="search" class="alt">
+            <form name="form-sidebar" method="post" action="/results">
+                <input type="text" name="query" id="query" placeholder="Search for Things?"/>
+                <input type="hidden" name="spatial_input" value=0 />
+                <input type="hidden" name="temporal_input" value=0 />
+                <input type="hidden" name="type_input" value=0 />
+                <input type="hidden" name="action_input" value="" />
+                <input type="hidden" name="property_input" value="" />
+                <input type="hidden" name="event_input" value="" />
+            </form>
+        </section>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <header class="major">
+                <h2>Navigation Bar</h2>
+            </header>
+            <ul>
+                <li>
+                    <span class="opener">IR.WoT</span>
+                        <ul>
+                            <li><a href="https://ir-wot-ugr.ue.r.appspot.com/">Search</a></li>
+                            <li><a href="/instructions">Instructions</a></li>
+                            <li><a href="/architecture">Architecture</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                </li>
+                <li>
+                    <span class="opener">SiM.WoT</span>
+                        <ul>
+                            <li><a href="https://sim-wot-ugr.ue.r.appspot.com/">SIM.WoT Simulator</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                </li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="https://doctorados.ugr.es/tic/">UGR Ph.D (ICT) Program</a></li>
+                <li><a href="https://www.ugr.es/">University of Granada</a></li>
+            </ul>
+        </nav>
+
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Doctoral Thesis</h2>
+            </header>
+            <div class="mini-posts">
+                <article>
+                    <img alt="University of Granada"
+                         src="{{ url_for('static', filename='images/ugrlogo-small.png') }}"
+                         style=width:75px;height:75px;border:0;display:flex;justify-content:center"><br>
+                    <p>Part of my dissertation to pursue the PhD degree in Information and Communication
+                        Technologies at the University of Granada, Spain.</p>
+                </article>
+            </div>
+            <ul class="actions">
+                <li><a href="/research" class="button">More</a></li>
+            </ul>
+        </section>
+
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Get in touch</h2>
+            </header>
+            <p>You can contact us at Department of Computer Science and AI of the University of Granada:</p>
+            <ul class="contact">
+                <li class="fa-envelope-o"><a
+                        href="mailto:cristyanmanta@correo.ugr.es">cristyanmanta@correo.ugr.es</a></li>
+                <li class="fa-envelope-o"><a href="mailto:jmfluna@decsai.ugr.es">jmfluna@decsai.ugr.es</a></li>
+                <li class="fa-home">Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada, Spain</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">2023 &copy; <br/> Cristyan Manta-Caro & <br/> Juan M. Fernández-Luna.</p>
+        </footer>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+    // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                };
+                // alert( "Your Location is: ["+ pos.lat + ", " + pos.lng + "]" )
+                document.getElementById("location_user").setAttribute("placeholder", "Your Location is: " + "["+ pos.lat + ", " + pos.lng + "]" );
+                document.getElementById("location_input").setAttribute("value", JSON.stringify(pos));
+            },
+            () => {
+                // alert( "Error: The Geolocation service failed." )
+                document.getElementById("location_user").setAttribute("placeholder", "Your Location is: Granada, Spain" );
+                document.getElementById("location_input").setAttribute("value", JSON.stringify({'lat':0,'lng':0}));
+            }
+        );
+    } else {
+        // Browser doesn't support Geolocation
+        alert( "Error: Your browser doesn't support geolocation." )
+    }
+
+</script>
+
+</body>
+
+</html>

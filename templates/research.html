@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<!--
+	SIM.WoT Event-Driven Simulator for the Web of Things
+	-- Dashboard UI Options
+-->
+<html xmlns:justify-content="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IR.WoT - Information Retrieval for the WoT</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Web of Things Event-Driven Simulation" />
+    <meta name="keywords" content="Information Retrieval, Search Engine, Web of Things, Internet of Things" />
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <!-- Section for Search of Things -->
+                <section class="alt" id="search">
+                    <p>Information Retrieval for the <br /> <\WoT> Web of Things</p>
+                    <!-- <form method="post" action="/results">
+                        <input type="text" name="query" id="query" placeholder="Search for Things?" />
+                    </form> -->
+                </section>
+                <ul class="icons">
+                    <li><a class="icon fa-github fa-2x" href="https://github.com/cristyanmanta/sim-wot-ugr"><span class="label">GitHub Project Repository</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Banner w/ id="banner" nor Content-->
+            <section>
+
+                <header class="major">
+                    <h2>Research</h2>
+                </header>
+
+                <p>
+                    Cristyan Manta-Caro and Juan M. Fernández-Luna: “Modeling and Simulating the Web of Things
+                    from an Information Retrieval Perspective”. ACM Transactions on the Web 12, 1, Article 6 (2018), 27
+                    pages. DOI: <a href="https://doi.org/10.1145/3132732">https://doi.org/10.1145/3132732</a>.
+                </p>
+
+                <p>
+                    Cristyan Manta-Caro, Annalina Caputo, Juan M. Fernández-Luna: "Information Retrieval for IoT and WoT:
+                    State-of-the-Art, Taxonomy Framework and Evolutionary Directions" submitted to revision (20-sept/2022)
+                    after receiving comments for modification and structure changes by ACM Computing Surveys editor/peer-reviewers.
+                    Paper elaborated in collaboration with the <a href="https://www.dcu.ie/"> Dublin City University </a>.
+                </p>
+
+                <p>
+                    Cristyan Manta-Caro, Juan M. Fernández-Luna, Wilmar Jaimes Fernández: "Cybersecurity as Information Retrieval
+                    Dimension for Cloud-based Edge-powered IoT Search. IEEE Latin-America Conference on Communications (LATINCOM),
+                    Santo Domingo, Dominican Republic, 2020: pp. 1-6. DOI: <a
+                        href="https://doi.org/10.1109/LATINCOM50620.2020.9282336">https://doi.org/10.1109/LATINCOM50620.2020.9282336</a>
+                    Paper elaborated in collaboration with the <a href="https://www.poli.edu.co/"> Grancolombiano Polytechnic </a>.
+                </p>
+
+                <p>
+                    Cristyan Manta-Caro and Juan M. Fernández-Luna: "Information-Retrieval-as-a-Service for the Web of
+                    Things: A Survey and a Proposal of IRaaS Architecture," 2016 IEEE 4th International Conference on
+                    Future Internet of Things and Cloud (FiCloud), Vienna, Austria, 2016, pp. 325-333. DOI: <a
+                        href="https://doi.org/10.1109/FiCloud.2016.53">https://doi.org/10.1109/FiCloud.2016.53</a>.
+                </p>
+
+                <p>
+                    Cristyan Manta-Caro and Juan M. Fernández-Luna: "Advances in Real-time Indexing Models and Techniques for
+                    the Web of Things," 2016 8th IEEE Latin-American Conference on Communications (LATINCOM), Medellin, Colombia,
+                    2016, pp. 1-6. DOI: <a href="http://doi.org/10.1109/LATINCOM.2016.7811572">http://doi.org/10.1109/LATINCOM.2016.7811572</a>.
+                </p>
+
+                <p>
+                    Cristyan Manta-Caro and Juan M. Fernández-Luna: "A discrete-event simulator for the web of things
+                    from an information retrieval perspective," 2014 IEEE Latin-America Conference on Communications
+                    (LATINCOM), Cartagena de Indias, Colombia, 2014, pp. 1-6. DOI: <a
+                        href="http://doi.org/10.1109/LATINCOM.2014.7041851">http://doi.org/10.1109/LATINCOM.2014.7041851</a>.
+                </p>
+
+                <p>
+                    Cristyan Manta-Caro and Juan M. Fernández-Luna: 2014. “Modeling the Web of Things from an IR
+                    approach”. In: Proceedings of ECIR14 Information Access in Smart Cities Workshop (i-ASC 2014), pp.
+                    7–10. Amsterdam, the Netherlands, 2014. URL: <a
+                        href="http://dcs.gla.ac.uk/workshops/iASC2014/papers/iasc2014_caro.pdf">http://dcs.gla.ac.uk/workshops/iASC2014/</a>.
+                </p>
+
+
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form name="form-sidebar" method="post" action="/results">
+                    <input type="text" name="query_sidebar" id="query_sidebar" placeholder="Search for Things?" />
+                </form>
+            </section>
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Navigation Bar</h2>
+                </header>
+                <ul>
+                    <li>
+                        <span class="opener">IR.WoT</span>
+                        <ul>
+                            <li><a href="https://ir-wot-ugr.ue.r.appspot.com/">Search</a></li>
+                            <li><a href="/instructions">Instructions</a></li>
+                            <li><a href="/architecture">Architecture</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">SiM.WoT</span>
+                        <ul>
+                            <li><a href="https://sim-wot-ugr.ue.r.appspot.com/">SIM.WoT Simulator</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/research">Research</a></li>
+                    <li><a href="https://doctorados.ugr.es/tic/">UGR Ph.D (ICT) Program</a></li>
+                    <li><a href="https://www.ugr.es/">University of Granada</a></li>
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Doctoral Thesis</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <img alt="University of Granada" src="{{ url_for('static', filename='images/ugrlogo-small.png') }}" style=width:75px;height:75px;border:0;display:flex;justify-content:center"><br>
+                        <p>Development of my dissertation to pursue the PhD degree in Information and Communication Technologies at the University of Granada, Spain.</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="/research" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>You can contact us at Department of Computer Science and AI of the University of Granada:</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="mailto:cristyanmanta@correo.ugr.es">cristyanmanta@correo.ugr.es</a></li>
+                    <li class="fa-envelope-o"><a href="mailto:jmfluna@decsai.ugr.es">jmfluna@decsai.ugr.es</a></li>
+                    <li class="fa-home">Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada, Spain</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">2023 &copy; <br /> Cristyan Manta-Caro & <br /> Juan M. Fernández-Luna.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

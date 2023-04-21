@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<!--
+	IR.WoT Information Retrieval for the web of Things
+	-- Settings UI Module
+-->
+<html xmlns:justify-content="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IR.WoT - Information Retrieval for the WoT</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="description" content="Web of Things Event-Driven Simulation"/>
+    <meta name="keywords" content="Information Retrieval, Search Engine, Web of Things, Internet of Things"/>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <!-- Section for Search of Things -->
+                <section class="alt" id="search">
+                    <p>Information Retrieval for the <br/> <\WoT> Web of Things</p>
+                    <!-- <form method="post" action="/results">
+                        <input type="text" name="query" id="query" placeholder="Search for Things?" />
+                    </form> -->
+                </section>
+                <ul class="icons">
+                    <li><a class="icon fa-github fa-2x" href="https://github.com/cristyanmanta/sim-wot-ugr"><span
+                            class="label">GitHub Project Repository</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Banner w/ id="banner" nor Content-->
+            <section>
+
+                <header class="major">
+                    <h2>Information Retrieval Settings for IR.WoT</h2>
+                </header>
+
+                <div class="row gtr-200">
+                    <form action="/settings" method="post" class="col-12 col-12-medium">
+                        <div class="row">
+                             <!-- IR.WoT Specific Settings Form -->
+                            <div class="col-6 col-12-medium">
+                                <div class="box">
+                                    <p>Data Structure for Indexing:</p>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['index-structure'] == "hash-redblack" %}
+                                        <input type="radio" id="hash-redblack" name="index-structure" value="hash-redblack" checked="">
+                                        <label for="hash-redblack">Hash Map & Red-Black Tree <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="hash-redblack" name="index-structure" value="hash-redblack">
+                                        <label for="hash-redblack">Hash Map & Red-Black Tree</label>
+                                        {% endif%}
+
+                                    </div>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['index-structure'] == "hash-bplus" %}
+                                        <input type="radio" id="hash-bplus" name="index-structure" value="hash-bplus" checked="">
+                                        <label for="hash-bplus">Hash Map & B+ Tree <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="hash-bplus" name="index-structure" value="hash-bplus">
+                                        <label for="hash-bplus">Hash Map & B+ Tree</label>
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['index-structure'] == "hash-link" %}
+                                        <input type="radio" id="hash-link" name="index-structure" value="hash-link" checked="">
+                                        <label for="hash-link">Hash Map & Linked Lists <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="hash-link" name="index-structure" value="hash-link">
+                                        <label for="hash-link">Hash Map & Linked Lists</label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-12-medium">
+                                <div class="box">
+                                    <p>Dynamic Indexing Strategy:</p>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['index-strategy'] == "element-incremental" %}
+                                        <input type="radio" id="element-incremental" name="index-strategy" value="element-incremental" checked="">
+                                        <label for="element-incremental">Element-Based & Incremental <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="element-incremental" name="index-strategy" value="element-incremental">
+                                        <label for="element-incremental">Element-Based & Incremental</label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['index-strategy'] == "selective-distributed" %}
+                                        <input type="radio" id="selective-distributed" name="index-strategy" value="selective-distributed" checked="">
+                                        <label for="selective-distributed">Selective & Distributed <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="selective-distributed" name="index-strategy" value="selective-distributed">
+                                        <label for="selective-distributed">Selective & Distributed</label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['index-strategy'] == "mapreduce-compressed" %}
+                                        <input type="radio" id="mapreduce-compressed" name="index-strategy" value="mapreduce-compressed" checked="">
+                                        <label for="mapreduce-compressed">Map-Reduce & Compressed <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="mapreduce-compressed" name="index-strategy" value="mapreduce-compressed">
+                                        <label for="mapreduce-compressed">Map-Reduce & Compressed</label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-12-medium">
+                                <div class="box">
+                                    <p>IR Model & Ranking:</p>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['model-ranking'] == "tf-idf" %}
+                                        <input type="radio" id="tf-idf" name="model-ranking" value="tf-idf" checked="">
+                                        <label for="tf-idf">TF-IDF Term Frequency Inverse Document Frequency <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="tf-idf" name="model-ranking" value="tf-idf">
+                                        <label for="tf-idf">TF-IDF Term Frequency Inverse Document Frequency</label>
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['model-ranking'] == "bm25" %}
+                                        <input type="radio" id="bm25" name="model-ranking" value="bm25" checked="">
+                                        <label for="bm25">BM25 Best-Match Version 25 <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="bm25" name="model-ranking" value="bm25">
+                                        <label for="bm25">BM25 Best-Match Version 25</label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-12-medium">
+                                <div class="box">
+                                    <p>UI User Interface:</p>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['user-interface'] == "ui-A" %}
+                                        <input type="radio" id="ui-A" name="user-interface" value="ui-A" checked="">
+                                        <label for="ui-A">User Interface Type A <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="ui-A" name="user-interface" value="ui-A">
+                                        <label for="ui-A">User Interface Type A</label>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-4 col-12-small">
+                                        {% if settings['user-interface'] == "ui-B" %}
+                                        <input type="radio" id="ui-B" name="user-interface" value="ui-B" checked="">
+                                        <label for="ui-B">User Interface Type B <mark>[Live]</mark></label>
+                                        {% else %}
+                                        <input type="radio" id="ui-B" name="user-interface" value="ui-B">
+                                        <label for="ui-B">User Interface Type B</label>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-12-medium">
+                            <button class="button primary" type="submit">Save Settings</button>
+                            </div>
+
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form name="form-sidebar" method="post" action="/results">
+                    <input type="text" name="query_sidebar" id="query_sidebar" placeholder="Search for Things?"/>
+                </form>
+            </section>
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Navigation Bar</h2>
+                </header>
+                <ul>
+                    <li>
+                        <span class="opener">IR.WoT</span>
+                        <ul>
+                            <li><a href="https://ir-wot-ugr.ue.r.appspot.com/">Search</a></li>
+                            <li><a href="/instructions">Instructions</a></li>
+                            <li><a href="/architecture">Architecture</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">SiM.WoT</span>
+                        <ul>
+                            <li><a href="https://sim-wot-ugr.ue.r.appspot.com/">SIM.WoT Simulator</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/research">Research</a></li>
+                    <li><a href="https://doctorados.ugr.es/tic/">UGR Ph.D (ICT) Program</a></li>
+                    <li><a href="https://www.ugr.es/">University of Granada</a></li>
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Doctoral Thesis</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <img alt="University of Granada"
+                             src="{{ url_for('static', filename='images/ugrlogo-small.png') }}"
+                             style=width:75px;height:75px;border:0;display:flex;justify-content:center"><br>
+                        <p>Development of my dissertation to pursue the PhD degree in Information and Communication
+                            Technologies at the University of Granada, Spain.</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="/research" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>You can contact us at Department of Computer Science and AI of the University of Granada:</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a
+                            href="mailto:cristyanmanta@correo.ugr.es">cristyanmanta@correo.ugr.es</a></li>
+                    <li class="fa-envelope-o"><a href="mailto:jmfluna@decsai.ugr.es">jmfluna@decsai.ugr.es</a></li>
+                    <li class="fa-home">Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada, Spain</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">2023 &copy; <br/> Cristyan Manta-Caro & <br/> Juan M. Fernández-Luna.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

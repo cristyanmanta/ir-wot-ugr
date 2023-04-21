@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<!--
+	SIM.WoT Event-Driven Simulator for the Web of Things
+	-- Dashboard UI Options
+-->
+<html xmlns:justify-content="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IR.WoT - Information Retrieval for the WoT</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Web of Things Event-Driven Simulation" />
+    <meta name="keywords" content="Information Retrieval, Search Engine, Web of Things, Internet of Things" />
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <!-- Section for Search of Things -->
+                <section class="alt" id="search">
+                    <p>Information Retrieval for the <br /> <\WoT> Web of Things</p>
+                    <!-- <form method="post" action="/results">
+                        <input type="text" name="query" id="query" placeholder="Search for Things?" />
+                    </form> -->
+                </section>
+                <ul class="icons">
+                    <li><a class="icon fa-github fa-2x" href="https://github.com/cristyanmanta/sim-wot-ugr"><span class="label">GitHub Project Repository</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Banner w/ id="banner" nor Content-->
+            <section>
+
+                <header class="major">
+                    <h2>Instructions for End-User Experiments and Survey</h2>
+                </header>
+
+                <p>
+                    Thanks! for participing in the <b>"Information Retrieval for the Web of Things" End-User Experiments and Survey</b>.
+                </p>
+                <p>
+                    First at all, the purpose of the following consent form is to provide the participants in this
+                    research
+                    with a clear explanation of its nature, as well as their role in it as participants.
+                    This scientific research is conducted by Cristyan Manta-Caro, from the University of Granada, Spain.
+                    The goal of the study is to evaluate a Information Retrieval system for the Web of Things called,
+                    (IR.WoT) from the perspective of the end-user.
+                    This system in the form of a search engine published is as a Web service at <a
+                        href="https://ir-wot-ugr.ue.r.appspot.com/">https://ir-wot-ugr.ue.r.appspot.com/</a>
+                </p>
+                <p>
+                    If you agree to participate in this research study, you will be asked in a first session to follow a
+                    series of search tasks using the IR.WoT system and to complete an online survey.
+                    Subsequently, in a second session, you will be asked to answer questions in an interview about your
+                    experience using the system.
+                    These sessions will take approximately 90 minutes of your time in total.
+                    Responses to the second session will be recorded on an online form.
+                    Participation in this study is strictly voluntary. The information collected will remain
+                    confidential and will not be used for any other purpose outside of this research.
+                    Your responses to the questionnaire and interview will be coded using a participant number and will
+                    therefore remain anonymous. Thank you in advance for your participation.
+                </p>
+
+                <h3>End-User Location</h3>
+                <p>
+                    The IR.WoT system will require you to share your current location, so the search results are shown centered
+                    in your location. Otherwise, the search results will be centered assuming <u>Granada, Spain as your geo-location</u>.
+                </p>
+
+
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form name="form-sidebar" method="post" action="/results">
+                    <input type="text" name="query_sidebar" id="query_sidebar" placeholder="Search for Things?" />
+                </form>
+            </section>
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Navigation Bar</h2>
+                </header>
+                <ul>
+                    <li>
+                        <span class="opener">IR.WoT</span>
+                        <ul>
+                            <li><a href="https://ir-wot-ugr.ue.r.appspot.com/">Search</a></li>
+                            <li><a href="/instructions">Instructions</a></li>
+                            <li><a href="/architecture">Architecture</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">SiM.WoT</span>
+                        <ul>
+                            <li><a href="https://sim-wot-ugr.ue.r.appspot.com/">SIM.WoT Simulator</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/research">Research</a></li>
+                    <li><a href="https://doctorados.ugr.es/tic/">UGR Ph.D (ICT) Program</a></li>
+                    <li><a href="https://www.ugr.es/">University of Granada</a></li>
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Doctoral Thesis</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <img alt="University of Granada" src="{{ url_for('static', filename='images/ugrlogo-small.png') }}" style=width:75px;height:75px;border:0;display:flex;justify-content:center"><br>
+                        <p>Development of my dissertation to pursue the PhD degree in Information and Communication Technologies at the University of Granada, Spain.</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="/research" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>You can contact us at Department of Computer Science and AI of the University of Granada:</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a href="mailto:cristyanmanta@correo.ugr.es">cristyanmanta@correo.ugr.es</a></li>
+                    <li class="fa-envelope-o"><a href="mailto:jmfluna@decsai.ugr.es">jmfluna@decsai.ugr.es</a></li>
+                    <li class="fa-home">Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada, Spain</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">2023 &copy; <br /> Cristyan Manta-Caro & <br /> Juan M. Fernández-Luna.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
