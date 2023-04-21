@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="vX">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="base" type="xs:string" />
+        <xs:element name="interaction">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="property">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="keyword" type="xs:string" />
+                    <xs:element name="idvThing" type="xs:unsignedByte" />
+                    <xs:element name="classifier" type="xs:string" />
+                    <xs:element name="description" type="xs:string" />
+                    <xs:element name="characteristics" type="xs:string" />
+                    <xs:element name="state" type="xs:string" />
+                    <xs:element name="membership" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="action">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string" />
+                    <xs:element name="ownedBy" type="xs:string" />
+                    <xs:element name="carriedBy" type="xs:string" />
+                    <xs:element name="form">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="href" type="xs:string" />
+                          <xs:element name="coap" type="xs:string" />
+                          <xs:element name="mediaType" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="eventTime" type="xs:string" />
+                    <xs:element name="value" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="type" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vX type="intelligentZone">
+    <name>izn0001</name>
+    <base>http://localhost:5002/api/izones/izn0001/</base>
+    <interaction>
+        <property>
+            <keyword>Europe, Spain, Country, Kingdom</keyword>
+            <idvZone>0001</idvZone>
+            <classifier>Country</classifier>
+            <description>officially the Kingdom of Spain (Spanish: Reino de España),[d][e] is a sovereign state and a member state of the European Union. It is located on the Iberian Peninsula in southwestern Europe. Its mainland is bordered to the south and east by the Mediterranean Sea except for a small land boundary with Gibraltar; to the north and north east by France, Andorra, and the Bay of Biscay; and to the west and northwest by Portugal and the Atlantic Ocean. It is one of three countries—France and Morocco are the other two—to have both Atlantic and Mediterranean coastlines. Spain's 1,214 km (754 mi) border with Portugal is the longest uninterrupted border within the European Union.</description>
+            <locationName>Reino de España</locationName>
+            <address>C/ Panamá, 1, 28046 Madrid</address>
+            <geoclass>(A) Country, State, Region, ...</geoclass>
+            <geoidentifier>2510769</geoidentifier>
+            <featureCode>(PCLI) Independent Political Entity</featureCode>
+            <latitude>40.0000</latitude>
+            <longitude>-4.0000</longitude>
+            <elevation>532</elevation>
+            <membership>Null</membership>
+            <geocoordinate>40.0000, -4.0000</geocoordinate>
+        </property>
+        <action type="administration">
+            <name>Admin</name>
+            <administratedBy>Ministerio de industria, energía y turismo</administratedBy>
+        </action>
+        <action type="composition">
+            <name>Composed</name>
+            <composedBy>http://localhost:5002/api/smartspaces/sss0001/</composedBy>
+            <hostedAt>Null</hostedAt>
+        </action>
+    </interaction>
+</vX>

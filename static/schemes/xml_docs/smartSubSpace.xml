@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vX type="smartSubSpace">
+    <name>sss0415</name>
+    <base>http://localhost:5002</base>
+    <interaction>
+        <property>
+            <keyword>Bicing, Barcelona, Bike Station</keyword>
+            <idvSubSpace>0033</idvSubSpace>
+            <classifier>Bicing Station</classifier>
+            <description>Bicing is the name of a bicycle sharing system in Barcelona inaugurated on March 22. 2007. It is similar to the VNlo-v service in Lyon or VNlib- in Paris. and using the same bicycles and stations as used in Stockholm. Oslo. and Zaragoza. Its purpose is to cover the small and medium daily routes within the city in a climate-friendly way. eliminating the pollution. roadway noise. and traffic congestion that motor vehicles create.</description>
+            <locationName>421 - PL. DE JOAN PEIRO</locationName>
+            <address>Plaça de Joan Peiró, 421, 08014</address>
+            <geoclass>(N/A</geoclass>
+            <geoidentifier>N/A</geoidentifier>
+            <featureCode>(BISTN) Bicing Station</featureCode>
+            <latitude>41.3782</latitude>
+            <longitude>2.1398</longitude>
+            <elevation>15</elevation>
+            <membership>http://localhost:5002/api/smartspaces/ssp0001/</membership>
+            <geocoordinate>41.3782, 2.1398</geocoordinate>
+        </property>
+        <action type="administration">
+            <name>Admin</name>
+            <administratedBy>Ajuntament de Barcelona</administratedBy>
+        </action>
+        <action type="composition">
+            <name>Composed</name>
+            <composedBy>Null</composedBy>
+            <hostedAt>http://localhost:5002/api/vthings/vth0033/</hostedAt>
+        </action>
+    </interaction>
+</vX>

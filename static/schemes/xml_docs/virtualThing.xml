@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vX type="virtualThing">
+    <name>vth0033</name>
+    <base>http://localhost:5002</base>
+    <interaction>
+        <property>
+            <keyword>Bike, Bicycle</keyword>
+            <idvThing>0033</idvThing>
+            <classifier>Public Transportation</classifier>
+            <description>The bike is specially designed to prevent theft of parts, or of the whole bike, as well as to prevent vandalism. It is also designed to be easily recognised. However, common user complaints include missing ringbells, cut brakes, and poor maintenance. Bikes have sometimes been stolen, even by sawing the anchors that fix bikes on the stands, and found repainted.</description>
+            <characteristics>Red color</characteristics>
+            <state>2 = Moving Online</state>
+            <membership>http://localhost:5002/api/smartsubspaces/sss0000/</membership>
+            <geocoordinate>41.3782, 2.1398</geocoordinate>
+        </property>
+        <action type="service">
+            <name>To be ridden</name>
+            <ownedBy>Ajuntament de Barcelona</ownedBy>
+            <carriedBy>vUser0000</carriedBy>
+            <form>
+                <href>http://localhost:5002/api/vthings/vth0033/</href>
+                <coap>coap:///www.irowot.com:5683/vthings/vth0033</coap>
+                <mediaType>application/xml</mediaType>
+            </form>
+        </action>
+        <event type="stateChange">
+            <eventTime>2017-09-28 16:06:30.439388</eventTime>
+            <value>2 ( Moving Online )</value>
+        </event>
+        <event type="stateChange">
+            <eventTime>2010-01-30 13:00:00.357192</eventTime>
+            <value>0 ( Stationary Online )</value>
+        </event>
+    </interaction>
+</vX>

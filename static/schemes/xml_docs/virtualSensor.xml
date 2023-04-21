@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vX type="virtualSensor">
+    <name>vsn0033</name>
+    <base>https://sim-wot-ugr.appspot.com/</base>
+    <interaction>
+        <property>
+            <keyword>Magnetic switch sensor</keyword>
+            <idvSensor>0033</idvSensor>
+            <classifier>Magnetic Sensor</classifier>
+            <description>A magnetic field sensor is a small-scale micro electromechanical systems device for detecting and measuring magnetic fields (Magnetometer). Many of these operate by detecting effects of the Lorentz force: a change in voltage or resonant frequency may be measured electronically, or a mechanical displacement may be measured optically. Compensation for temperature effects is necessary. Its use as a miniaturized compass may be one such simple example application.</description>
+            <state>1 = Active</state>
+            <membership>https://sim-wot-ugr.appspot.com/api/vsensors/vsn0033/</membership>
+            <geocoordinate>41.3782, 2.1398</geocoordinate>
+        </property>
+        <action>
+            <name>Bike availability</name>
+            <observedProperty>Bike presence on slot</observedProperty>
+            <maxValue>1</maxValue>
+            <minValue>0</minValue>
+            <densityFunction>1 = Binomial</densityFunction>
+            <samplingTime>30 seconds</samplingTime>
+            <form>
+                <href>/api/vsensors/vsn0033/actions/</href>
+                <coap>coap:///sim-wot-ugr.appspot.com:5683/vsensors/vsn0033</coap>
+                <mediaType>application/xml</mediaType>
+            </form>
+        </action>
+        <event type="observation">
+            <eventTime>2019-02-28 16:06:30.439388</eventTime>
+            <value>0 ( Non-Available )</value>
+        </event>
+        <event type="stateChange">
+            <eventTime>2019-02-28 13:00:00.357192</eventTime>
+            <value>1 ( Change to Active )</value>
+        </event>
+    </interaction>
+</vX>
