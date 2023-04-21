@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<!--
+	IR.WoT Event-Driven Simulator for the Web of Things
+	-- Architecture
+-->
+<html xmlns:justify-content="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IR.WoT - Information Retrieval for the WoT</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="description" content="Web of Things Event-Driven Simulation"/>
+    <meta name="keywords" content="Information Retrieval, Search Engine, Web of Things, Internet of Things"/>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+                <!-- Section for Search of Things -->
+                <section class="alt" id="search">
+                    <p>Information Retrieval for the <br/> <\WoT> Web of Things</p>
+                    <!-- <form method="post" action="/results">
+                        <input type="text" name="query" id="query" placeholder="Search for Things?" />
+                    </form> -->
+                </section>
+                <ul class="icons">
+                    <li><a class="icon fa-github fa-2x" href="https://github.com/cristyanmanta/sim-wot-ugr"><span
+                            class="label">GitHub Project Repository</span></a></li>
+                </ul>
+            </header>
+
+            <!-- Banner w/ id="banner" nor Content-->
+            <section>
+
+                <header class="major">
+                    <h2>IR.WoT Architecture</h2>
+                </header>
+
+                <span class="image main"><img src="static/images/ir-wot-arch.png" alt=""></span>
+                <p>
+                    Our approach, named <strong>IR.WoT</strong> is an Information Retrieval system for the Web of
+                    Things. In the figure, we map the IR.WoT components to the IR data flow in the modular
+                    architecture of [Tran et al, 2017], <a href="https://doi.org/10.1145/3092695">https://doi.org/10.1145/3092695</a>.
+                    Where a generic Web of Things Search Engine (WoTSE) has been referenced as a comparison framework to
+                    guide future IR developments. We have cross-correlated our IR.WoT as a service architecture with the
+                    modular counterpart. The former provides a functional cloud-based resource perspective and the
+                    latter provides a data flow-oriented analysis. In the following sections, we describe
+                    each functional modular part of IR.WoT and we present an overview of internal cloud architecture.
+                </p>
+
+                <hr class="major">
+
+                <h2>Query UI Module Description</h2>
+
+                <ul>
+                    <li>
+                        Search for Things?. Input text box for capturing the CO Content-Only user query. You can enter
+                        it in natural language as in traditional search engines.
+                    </li>
+                    <li>Spatial Restrictions. By default query is constraint to "Here". So the results displayed are
+                        scored and organised to rank highest the WoT entities around you about 10 meters or less.
+                    </li>
+                    <li>Temporal Restrictions. By default query is constraint to "Now". So the results displayed are
+                        scored and organised to rank highest the WoT entities with recent actions or events happended
+                        about 10 minutes or less.
+                    </li>
+                    <li>
+                        Entity Restrictions. You can filter the results tuning the query to search between all the
+                        entities or only-things or only-sensors or only-spaces.
+                    </li>
+                    <li>
+                        Property Restrictions. Advanced options to create CAS Content-and-Structure user queries. So
+                        results are ranked higher for WoT entities with the input provided for properties.
+                    </li>
+                    <li>
+                        Action Restrictions. Advanced options to create CAS user queries. So
+                        results are ranked higher for WoT entities that exhibit the actions or services provided.
+                    </li>
+                    <li>
+                        Event Restrictions. Advanced options to create CAS user queries. So
+                        results are ranked higher for WoT entities with historical events as provided.
+                    </li>
+                </ul>
+
+                <hr class="major">
+
+                <h2>Interpreter Module Description</h2>
+
+                <p>
+                    The NEXI (Narrowed Extended XPath I) query language developed by the INEX community (Trotman &
+                    Sigurbjörnsson, Narrowed Extended XPath I (NEXI), 2005), (Trotman & Sigurbj_rnsson, NEXI, now and
+                    next, 2004) it is based on XPath expressions to access and navigate within the components and
+                    elements of the IR Test XML-based document collection. Because exact containment of elements may be
+                    less critical
+                    in IR applications, NEXI only supports descendant or auto ("//") notation for routes. To specify
+                    classified recovery, NEXI replaces the contains function with about.
+                </p>
+                <p>
+                    In the framework of the IR.WoT, user-facing fields and restrictions are captured through
+                    the Query UI Module, which are then translated from natural language to NEXI language queries.
+                    Conventionally, translation can be done using various methods given the structure and content of the
+                    XML documents in the collection in order to build information retrieval type queries for XML. For
+                    the proposed model, the following types of NEXI queries are
+                    available:
+                </p>
+
+                <ul>
+                    <li>
+                        Simple Queries of the form //A[B]. Example NEXI = //*[about(.,co_query)]
+                    </li>
+                    <li>
+                        Compound Queries of the form //A[B]//C[D]. Example NEXI = //*[about(.,co_query) and
+                        .//event/eventTime <= 1hour]
+                    </li>
+                </ul>
+
+                <hr class="major">
+
+                <h2>Dynamic Indexer Module Description</h2>
+                <p>
+                    Our Dynamic Index proposal is to analyse the combination of three data structures with the
+                    application of three
+                    combined XML dynamic strategies. Data structures: the dictionary that makes up the inverted index
+                    can be stored in a hash table or a similar structure, and the list of publications for each term t
+                    can be stored in a fixed-length array structure or a similar structure too.
+                <ul>
+                    <li>Hash Map & Linked Lists</li>
+                    <li>Hash Map & B+ Tree</li>
+                    <li>Hash Map & Black-Red Tree</li>
+                </ul>
+                <p>
+                    Strategies for Dynamic XML Indexing maintenance:
+                </p>
+                <ul>
+                    <li>Element-based: Highly redundant strategy which allows retrieval at any level, indexing all the
+                        elements trade-off with space complexity of the Index. Nested elements and ief calculations are
+                        grey zones.
+                    </li>
+                    <li>Leaf-Only: Non-redundant strategy which allows the retrieval at only-leaf level trade-off with
+                        the time complexity of relevance calculation from leaf element plus upward efficient propagation
+                        of the score.
+                    </li>
+                    <li>Aggregation-based: Indexing only-leaf elements using an aggregated representation trade-off with
+                        the element’s degree of influence.
+                    </li>
+                    <li>Selective: Indexing elements with a number of words above a given threshold, or of a type, or
+                        disjoints fragments trade-off with strategy combination to calculate term statistics.
+                    </li>
+                    <li>Distributed: Index for each element type with separate statistics, trade-off with space
+                        complexity and parallelism at retrieval time.
+                    </li>
+                    <li>Structure: structure/terms pairs statistics to capture significance of the structure.</li>
+                    <li>Map-Reduce: large-scale distributed data processing framework and programming model used to
+                        speed up and manage the index creation and maintenance in major current search engines.
+                    </li>
+                    <li>Compressed: For efficiently store and transfer data of dictionary and the index scheme itself.
+                    </li>
+                </ul>
+
+                <hr class="major">
+
+                <h2>IR Modeler & Ranker Module Description</h2>
+
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+
+            <!-- Search -->
+            <section id="search" class="alt">
+                <form name="form-sidebar" method="post" action="/results">
+                    <input type="text" name="query_sidebar" id="query_sidebar" placeholder="Search for Things?"/>
+                </form>
+            </section>
+
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Navigation Bar</h2>
+                </header>
+                <ul>
+                    <li>
+                        <span class="opener">IR.WoT</span>
+                        <ul>
+                            <li><a href="https://ir-wot-ugr.ue.r.appspot.com/">Search</a></li>
+                            <li><a href="/instructions">Instructions</a></li>
+                            <li><a href="/architecture">Architecture</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="opener">SiM.WoT</span>
+                        <ul>
+                            <li><a href="https://sim-wot-ugr.ue.r.appspot.com/">SIM.WoT Simulator</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/research">Research</a></li>
+                    <li><a href="https://doctorados.ugr.es/tic/">UGR Ph.D (ICT) Program</a></li>
+                    <li><a href="https://www.ugr.es/">University of Granada</a></li>
+                </ul>
+            </nav>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Doctoral Thesis</h2>
+                </header>
+                <div class="mini-posts">
+                    <article>
+                        <img alt="University of Granada"
+                             src="{{ url_for('static', filename='images/ugrlogo-small.png') }}"
+                             style=width:75px;height:75px;border:0;display:flex;justify-content:center"><br>
+                        <p>Development of my dissertation to pursue the PhD degree in Information and Communication
+                            Technologies at the University of Granada, Spain.</p>
+                    </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="/research" class="button">More</a></li>
+                </ul>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>You can contact us at Department of Computer Science and AI of the University of Granada:</p>
+                <ul class="contact">
+                    <li class="fa-envelope-o"><a
+                            href="mailto:cristyanmanta@correo.ugr.es">cristyanmanta@correo.ugr.es</a></li>
+                    <li class="fa-envelope-o"><a href="mailto:jmfluna@decsai.ugr.es">jmfluna@decsai.ugr.es</a></li>
+                    <li class="fa-home">Calle Periodista Daniel Saucedo Aranda, s/n, 18014 Granada, Spain</li>
+                </ul>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">2023 &copy; <br/> Cristyan Manta-Caro & <br/> Juan M. Fernández-Luna.</p>
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
